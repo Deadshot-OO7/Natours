@@ -1,0 +1,5 @@
+{
+  "css.completion.completePropertyWithSemicolon": false,
+  "less.completion.completePropertyWithSemicolon": false,
+  "scss.completion.completePropertyWithSemicolon": false
+}

@@ -1,0 +1,135 @@
+.btn{
+  &,
+  &:link,
+  &:visited{
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 4rem;
+    border-radius: 5rem;
+    display:inline-block;
+
+    transition: transform .4s;   /* 'all' can be used inplace of transform,in general*/
+    position: relative;
+         
+
+    //for <button> element
+
+    border: none;
+    cursor: pointer;  
+    
+  }
+
+  &:hover{
+    transform: translateY(-.3rem);
+    box-shadow: 0 2rem 2rem rgba($black,0.2);
+
+
+    &::after{                            /*btn hover ke samay after element aisa hoga */
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+  
+  &:active,&:focus   
+  {
+    outline: none;   
+    transform: translateY(-.1rem);
+    box-shadow: 0 1rem .7rem rgba($black,0.2);   
+  }
+  
+  &::after{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 5rem;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    transition: transform .4s, opacity .4s;   /*transition: all 0.2s;     all=transform,opacity*/
+  }
+
+  &--white{
+    background-color: $white;
+    color: $grey;
+
+    /* & = .btn--white  */
+    
+    &::after{
+      background-color: $white;
+    }
+    
+  }
+
+  &--green{  
+    background-color: $green;
+    color: $white;
+    /* & = .btn--white  */    
+    
+    &::after{
+      background-color: $green;                 
+    }
+    
+  }
+   
+  &--animated{
+    animation: moveInUp 0.3s ease-out 0.7s ;
+    animation-fill-mode: backwards;
+  }
+
+}
+
+.btn-rect{        //another button with rectangle,having clip property
+
+  &:link,
+  &:visited{
+
+    font-size: 2.1rem;
+    font-weight: 700;      
+    
+    text-decoration:none;
+    display: inline-block;
+    padding: .5rem .9rem;     
+    border-radius: .8rem;
+    letter-spacing: 1px;
+    
+
+    transition: all .2s;
+
+  }
+
+  &:hover{
+    
+    -webkit-background-clip:border-box;
+    color: $white;
+    box-shadow: 0 1rem 1.5rem rgba($black,0.4);
+    transform: translateY(-.2rem);
+    
+  }
+
+  &:active{
+
+    box-shadow: 0 .5rem 1.2rem rgba($black,0.6);
+    transform: translateY(-.1rem);
+  }
+
+  
+  &--clip{   
+    color: transparent;
+    background-image: linear-gradient(to right,$green,$blue);
+    -webkit-background-clip: text;
+  }
+      
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,123 @@
+.form{
+
+  &__group:not(:last-child){  
+    margin-bottom: 2rem; 
+
+  }
+
+  &__input{
+    font-size: 1.7rem;
+    font-family: inherit;         
+    color: inherit;                                             
+    background-color: rgba($white,.8);                        
+    border-radius: 3px;  
+    border-bottom: 3px solid transparent;   
+    width: 95%; 
+    border: none;   
+               
+    padding: 1rem 1.2rem;    
+    transition: border-bottom .6s;   
+
+    @include respond(tab-port)
+    {   
+      width: 100%;  
+      border: none; 
+      padding: 1rem 2rem;      
+    }     
+
+   &:focus{
+     outline: none; 
+     box-shadow: 0 2rem 4rem rgba($black,.3);         
+     border-bottom: 3px solid $green;      
+   }   
+   &:placeholder-shown + .form__label{        //it is pseudo class/state
+    opacity: 0;    
+    visibility: hidden;
+    transform:translateY(-4rem);   
+  }  
+  
+  
+  &:focus:invalid{
+    border-bottom: 3px solid #ff1e00;   
+    
+   }
+
+   &::-webkit-input-placeholder{            //to design placeholder, it is pseudo element
+    color:#aaa;                       
+  }
+  }           
+ 
+  &__label{      
+    font-size: 1.4rem;    
+    font-family: inherit !important;           
+    color: rgb(77, 77, 77);
+    margin-left: 1.2rem;
+    margin-top: 1.2rem;        
+    display: block;  
+    transition: all .3s;     
+    
+    @include respond(phone){   
+      margin-top: .4rem; }     
+  }   
+
+  &__radio-group{
+    width: 49%;  
+    display: inline-block;  
+    
+    @include respond(tab-port){   
+      width: 100%;  
+      margin-bottom: 2rem ;  }              
+  }
+
+  &__radio-label{
+    cursor: pointer;
+    font-size: 1.9rem;   
+    position: relative;
+    padding-left: 5rem;      
+
+  }
+
+  &__radio-button{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    border: 5px solid $green;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -.4rem;
+  }
+
+  &__radio-button::after{
+    content: "";
+    display: block;
+    height: 1.3rem;
+    width: 1.3rem;
+    border-radius: 50%;
+    background-color: $green;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); 
+    opacity: 0; 
+    transition: opacity .2s;  
+  }
+
+  &__radio-input:checked + &__radio-label &__radio-button::after{
+    opacity: 1;
+  }
+
+  &__radio-input{
+    display: none;    
+  }  
+    
+
+button{
+  font-size: inherit;   
+  font-family: inherit;
+  font-weight: inherit;         
+}
+
+}
+
+

@@ -1,0 +1,85 @@
+
+.popup{
+
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color:rgba($grey-dark,.3);                
+  z-index: 9999;                    
+  opacity: 0;
+  visibility: hidden;      
+  transition: all .4s ;           
+        
+  
+  @supports(-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)){
+    -webkit-backdrop-filter: blur(10px); 
+    backdrop-filter: blur(10px);         
+  }
+      
+ &__close{
+   &:link,&:visited{
+    font-size: 3rem;
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;    
+    color: $grey-dark;
+    line-height: 1;   
+    text-decoration: none;     
+   }
+   &:hover{
+     color: $green;  
+   }
+    
+ }
+    
+  &__content{
+    @include abscenter;       
+
+    width: 75%;  
+    background-color: $white;   
+    display: table;       
+    opacity: 0;
+    transform:translate(-50%,-50%) scale(.25);     
+    transition: all .6s cubic-bezier(.26,1.03,.68,1.4);                                                                                  
+  }
+         
+  &__left{ 
+    width: 33.33%;
+    display: table-cell;
+  }
+
+  &__right{
+    width: 66.67%;
+    display: table-cell;  
+    vertical-align:middle;      
+    text-align: center;    
+    padding: 0 5rem; 
+
+  }  
+
+  &__img{
+    width: 100%;
+    display: block;  
+  }
+
+  &__text{   
+    hyphens: auto;   
+    text-align: left;    
+    column-count: 2;        
+    column-gap: 3rem;                     
+  }
+
+  
+ &:target{
+  opacity: 1;
+  visibility: visible;
+ }
+
+ &:target &__content{
+  opacity: 1;
+  transform:translate(-50%,-50%) scale(1); 
+ }
+
+}   

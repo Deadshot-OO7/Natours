@@ -1,0 +1,73 @@
+.composition{
+
+  position: relative;
+
+  &__photo{
+    width: 55%;        //refernce to width of column
+    border-radius: 4px;
+    box-shadow: 0 2rem 2rem rgba($black,0.6);                        
+    position: absolute;
+    transition: all 0.2s;
+    z-index: 1;
+
+    @include respond(tab-port){   //900px
+        width: 33.333%;
+        float: left;
+        position: relative;
+        box-shadow: 0 2rem 2rem rgba($black,0.2);                          
+
+          
+    }
+  
+      
+      
+
+   // border:1.5rem solid transparent;
+                                    
+         
+    &--p1{
+     
+      left: 3rem;              
+      top: 3rem;                                                                    
+    }
+    
+    &--p2{
+
+      right: -1rem;
+      top: 10rem;   
+      @include respond(tab-port){   
+        right: -1.5rem;
+        top: 6rem;      
+        z-index: 2;     
+        transform: scale(1.1);             
+      }                    
+    }
+
+    &--p3{
+
+      left: 17%;
+      top: 19rem;       
+      @include respond(tab-port){   
+        top: 3rem;
+        left: 0rem;     
+      } 
+
+    }
+
+    &:hover{
+         
+      outline: 1.2rem solid $green-1;           
+      outline-offset: 1rem;             
+      transform: scale(1.05) translateY(-1rem);  
+      z-index: 2;
+
+    }
+  }
+  &:hover &__photo:not(:hover){             
+    transform: scale(.95);
+  }
+}
+// border-image: linear-gradient(to right,$green,$blue) 1 1.2rem; 
+//border-image-outset: 1.5rem;    
+//background-image: linear-gradient(to right,$green,$blue);
+//-webkit-background-clip: text;
